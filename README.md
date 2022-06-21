@@ -24,217 +24,112 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Best-README-Template</h3>
-
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
-  </p>
-</div>
-
-
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-
-
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Dashboard Demam Berdarah Dengue (DBD) Provinsi Jawa Barat Tahun 2014-2020
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+Data yang digunakan adalah data dari website opendata.jabarprov.go.id dengan studi kasus DBD berdasarkan kabupaten/kota dan jenis kelamin di Jawa Barat pada tahun 2014-2020. Data ini memiliki 13 variabel yang dapat dilihat pada gambar Dataset. Adapun penjelasan variabel-variabel tersebut diantaranya sebagai berikut: 
+1.	Id berisi nomor urut data.
+2.	Kode_provinsi berisi kode dari provinsi yang dijadikan studi kasus, dalam hal ini Provinsi Jawa Barat berkode 32.
+3.	Nama_provinsi berisi nama dari provinsi yang dijadikan studi kasus, dalam hal ini Provinsi Jawa Barat.
+4.	Kode_kabupaten_kota berisi kode kabupaten/kota setiap data.
+5.	Latitude berisi letak latitude kabupaten/kota setiap data.
+6.	Longitude berisi letak longitude kabupaten/kota setiap data.
+7.	Kode_pos berisi kode pos kabupaten/kota setiap data.
+8.	Jenis_kelamin berisi jenis kelamin dari setiap data.
+9.	Jumlah_kasus berisi jumlah kasus terdampak dari setiap data.
+10.	Jumlah_kasus_meninggal berisi jumlah kasus meninggal dari setiap data
+11.	Total_kasus berisi jumlah kasus terdampak dan meninggal dari setiap data.
+12.	Satuan berisi satuan dari variabel jumlah_kasus, jumlah_kasus_meninggal, dan total_kasus yaitu jiwa.
+13.	Tahun berisi tahun yang terjadi dari setiap data. 
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-### Built With
+## Pembuatan Visualisasi jumlah Kasus DBD Berdasarkan Jenis Kasus dan Kabupaten/Kota 
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+1. Memasukkan variabel longitude ke dalam columns
+2. Memasukkan variabel latitude ke dalam rows. 
+3. Membuat parameter dengan nama jenis kasus yang diawali dengan mengklik tanda segitiga kebalik dan pilih create parameter seperti pada gambar create parameter.
+4. Kemudian mengubah format data type, allowable values, dan memasukkan parameternya dengan terdampak dan meninggal seperti pada gambar membuat parameter.
+5. Membuat fungsi calculatednya dengan nama JenisKasusCalc yang diawali dengan mengklik tanda segitiga kebalik dan pilih create calculated field seperti pada gambar create calculated field.
+6. Kemudian masukkan code berikut ini.
+    ```sh
+    CASE [Jenis Kasus]
+    WHEN "Terdampak" THEN [Jumlah Kasus]
+    WHEN "Meninggal" THEN [Jumlah Kasus Meninggal]
+    END
+    ```
+7. Mengubah tampilan maps menjadi streets seperti pada gambar mengubah tampilan peta.
+8. Masukkan variabel nama kabupaten/kota, variabel kode kabupaten kota, dan kode pos ke dalam detail, serta fungsi JenisKasusCalc ke dalam size seperti pada gambar marks.
+9. Mengedit measure kode kabupaten kota dan kode pos menjadi min seperti pada gambar edit measure.
+10. Mengedit format tulisan kode kabupaten kota dan kode pos dengan mengklik format pada gambar di atas, kemudian edit format menjadi seperti gambar edit format kode.
+11. Mengganti warna sesuai yang diinginkan seperti pada gambar ganti warna.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Pembuatan Visualisasi Jumlah Kasus DBD Berdasarkan Jenis Kasus dan Jenis Kelamin per Tahun
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+1. Memasukkan variabel tahun ke dalam columns.
+2. Memasukkan JenisKasusCalc ke dalam rows. 
+3. Memasukkan variabel jenis kelamin ke dalam color di marks.
+4. Mengedit axis dengan mengklik kanan lalu pilih format seperti pada gambar edit axis line chart.
+5. Menampilkan parameter dengan mengklik kanan parameter jenis kasus dan klik show parameter seperti pada gambar show parameter line chart. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
+## Pembuatan Visualisasi Jumlah Kasus DBD per Tahun
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+1. Memasukkan variabel tahun ke dalam columns.
+2. Memasukkan variabel total kasus ke dalam rows. 
+3. Memasukkan variabel total kasus ke dalam color dan label di marks.
+4. Mengedit axis dengan mengklik kanan lalu pilih format seperti pada tahap 4 pembuatan visualisasi sebelumnya.
+5. Mengedit warna bar chart dengan mengklik tanda segitiga kebalik pada legenda visualisasi dan pilih edit colors seperti pada gambar edit warna bar chart.
+6. Mengedit judul legenda dengan langkah yang sama sebelumnya, namun pilih edit title.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-<!-- CONTRIBUTING -->
-## Contributing
+## Pembuatan Visualisasi Peringkat Kasus DBD Berdasarkan Kabuoaten/Kota
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Memasukkan variabel total kasus ke dalam columns.
+2. Memasukkan variabel nama kabupaten ke dalam rows. 
+3. Memasukkan variabel kode kabupaten kota dan kode pos ke dalam detail di marks.
+4. Mengganti measure dan format tulisan kode kabupaten kota dan kode pos seperti langkah 9 dan 10 pada Pembuatan Visualisasi jumlah Kasus DBD Berdasarkan Jenis Kasus dan Kabupaten/Kota.
+5. Mengedit axis dengan mengklik kanan lalu pilih format seperti pada tahap 4 pembuatan visualisasi sebelumnya.
+6. Mengganti warna sesuai yang diinginkan seperti langkah 11 pada Pembuatan Visualisasi jumlah Kasus DBD Berdasarkan Jenis Kasus dan Kabupaten/Kota.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-<!-- LICENSE -->
-## License
+## Pembuatan Visualisasi Presentase Kasus DBD Berdasarkan Jenis Kelamin
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+1. Memasukkan variabel total kasus ke dalam columns.
+2. Memasukkan variabel jenis kelamin ke dalam rows. 
+3. Mengubah quick table calculation menjadi percent of total seperti pada gambar change percent.
+4. Mengubah bentuk visualisasi menjadi pie chart seperti pada gambar ubah diagram.
+5. Memasukkan variabel jenis kelamin ke dalam color dan label serta variabel total kasus ke dalam label di marks.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+## Pembuatan Dashboard DBD Provinsi Jawa Barat Tahun 2014-2020
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+1. Mengubah penganturan dashboard dari tiled menjadi floating dan mengklik show dashboard title seperti pada gambar pengaturan dashboard.
+2. Menyusun semua visualisasi seperti pada gambar tampilan dashboard.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
+Catatan: Semua gambar ada di folder images
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
